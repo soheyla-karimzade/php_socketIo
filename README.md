@@ -11,7 +11,7 @@ OR
 ```
 php scriptG.php
 ```
-
+نصب پکیج های npm
 ```
 npm install
 ```
