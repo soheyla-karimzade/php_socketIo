@@ -1,0 +1,61 @@
+<><!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Real-time Records</title>
+        <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    </head>
+    <body>
+    <h2>Last 100 Records</h2>
+    <table border="1" id="recordsTable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Col1</th>
+            <th>Col2</th>
+            <th>Col3</th>
+            <th>Col4</th>
+            <th>Col5</th>
+            <th>Col6</th>
+            <th>Col7</th>
+            <th>Col8</th>
+            <th>Col9</th>
+            <th>Col10</th>
+            <th>Col11</th>
+            <th>Col12</th>
+            <th>Col13</th>
+            <th>Col14</th>
+            <th>Col15</th>
+            <th>Col16</th>
+            <th>Col17</th>
+            <th>Col18</th>
+            <th>Col19</th>
+            <th>Col20</th>
+        </tr>
+        </thead>
+        <tbody id="recordsBody">
+        </tbody>
+    </table>
+
+    <script>
+        const socket = io('http://localhost:3000');
+
+        socket.on('updateRecords', (records) => {
+            const recordsBody = document.getElementById('recordsBody');
+            recordsBody.innerHTML = ''; // خالی کردن جدول
+
+            records.forEach(record => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${record.id}</td>
+<td>${record.col1}</td><td>${record.col2}</td><td>${record.col3}</td><td>${record.col4}</td><td>${record.col5}</td>
+                                 <td>${record.col6}</td><td>${record.col7}</td><td>${record.col8}</td><td>${record.col9}</td><td>${record.col10}</td>
+                                 <td>${record.col11}</td><td>${record.col12}</td><td>${record.col13}</td><td>${record.col14}</td><td>${record.col15}</td>
+                                 <td>${record.col16}</td><td>${record.col17}</td><td>${record.col18}</td><td>${record.col19}</td><td>${record.col20}</td>`;
+                recordsBody.appendChild(row);
+            });
+        });
+    </script>
+    </body>
+    </html>
+</>

@@ -1,0 +1,13 @@
+{
+  "name": "php_socketIo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "socket.io": "^4.0.0"
+  }
+}
